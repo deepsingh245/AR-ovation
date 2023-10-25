@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', async (req, res) => {
-  const url = 'https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/car/scene.gltf'; // Replace with the actual URL you want to proxy
+  const url = 'https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/heart/scene.gltf'; // Replace with the actual URL you want to proxy
   try {
     const response = await axios.get(url);
     res.send(response.data);
