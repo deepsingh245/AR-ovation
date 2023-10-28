@@ -1,0 +1,11 @@
+Model Information:
+* title:	Realistic Heart Animated
+* source:	https://sketchfab.com/3d-models/realistic-heart-animated-913988af9ae74d40aacd95927dc0936f
+* author:	3D for Humans by TSI Org (https://sketchfab.com/tsiorg)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Realistic Heart Animated" (https://sketchfab.com/3d-models/realistic-heart-animated-913988af9ae74d40aacd95927dc0936f) by 3D for Humans by TSI Org (https://sketchfab.com/tsiorg) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
