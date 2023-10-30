@@ -31,61 +31,66 @@ AFRAME.registerComponent('cursor-listener', {
 
   }});
 
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   const scene = document.getElementById('scene');
-  //   const model2 = document.getElementById('heart');
+  document.addEventListener('DOMContentLoaded', function() {
+    const scene = document.getElementById('scene');
+    const model2 = document.getElementById('heart');
 
-  //   const manager = new Hammer.Manager(scene);
-  //   const pinch = new Hammer.Pinch();
-  //   const rotate = new Hammer.Rotate();
-  //   manager.add(pinch);
-  //   manager.add(rotate);
+    const manager = new Hammer.Manager(scene);
+    const pinch = new Hammer.Pinch();
+    const rotate = new Hammer.Rotate();
+    manager.add(pinch);
+    manager.add(rotate);
 
-  //   manager.on('pinch', function(ev) {
-  //       console.log('Pinch Event');
-  //       const currScale = model2.getAttribute('scale');
-  //       const scaleChange = (ev.scale - 1) * 0.01;
+    manager.on('pinch', function(ev) {
+        console.log('Pinch Event');
+        const currScale = model2.getAttribute('scale');
+        const scaleChange = (ev.scale - 1) * 0.01;
 
-  //       model2.setAttribute('scale', {
-  //           'x': currScale.x + scaleChange,
-  //           'y': currScale.y + scaleChange,
-  //           'z': currScale.z + scaleChange
-  //       });
-  //   });
+        model2.setAttribute('scale', {
+            'x': currScale.x + scaleChange,
+            'y': currScale.y + scaleChange,
+            'z': currScale.z + scaleChange
+        });
+    });
 
-  //   manager.on('rotate', function(ev) {
-  //       console.log('Rotate Event');
-  //       const currRotation = model2.getAttribute('rotation');
-  //       const rotationChange = ev.rotation;
+    manager.on('rotate', function(ev) {
+        console.log('Rotate Event');
+        const currRotation = model2.getAttribute('rotation');
+        const rotationChange = ev.rotation;
 
-  //       model2.setAttribute('rotation', {
-  //           'x': currRotation.x,
-  //           'y': currRotation.y + rotationChange,
-  //           'z': currRotation.z
-  //       });
-  //   });
-	// //
+        model2.setAttribute('rotation', {
+            'x': currRotation.x,
+            'y': currRotation.y + rotationChange,
+            'z': currRotation.z
+        });
+    });
+  });
+	//
 
 
-AFRAME.registerComponent('rotation-scale', {
-  init: function () {
-      const mymodel = document.getElementById('model');
-      var mc = new Hammer.Manager(mymodel);
 
-      const pinch = new Hammer.Pinch()
-      const rotate = new Hammer.Rotate()
 
-      pinch.recognizeWith(rotate);
+  // ye hammer wala yaha se hai ek uper bhi hai
 
-      mc.add([pinch, rotate]);
-      const curr = mymodel.getAttribute('rotation')
-      mc.on('rotate', function(ev){
-        console.log('done bhai')
-        mymodel.setAttribute('rotation',{
-          'x': curr.x - touch.pageY*0.01,
-          'y': curr.y + touch.pageX*0.01,
-          'z': curr.z 
-        } )
-      })
-  }
-});
+// AFRAME.registerComponent('rotation-scale', {
+//   init: function () {
+//       const mymodel = document.getElementById('model');
+//       var mc = new Hammer.Manager(mymodel);
+
+//       const pinch = new Hammer.Pinch()
+//       const rotate = new Hammer.Rotate()
+
+//       pinch.recognizeWith(rotate);
+
+//       mc.add([pinch, rotate]);
+//       const curr = mymodel.getAttribute('rotation')
+//       mc.on('rotate', function(ev){
+//         console.log('done bhai')
+//         mymodel.setAttribute('rotation',{
+//           'x': curr.x - touch.pageY*0.01,
+//           'y': curr.y + touch.pageX*0.01,
+//           'z': curr.z 
+//         } )
+//       })
+//   }
+// });
