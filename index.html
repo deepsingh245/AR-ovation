@@ -2,63 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1">
     <title>AR-ovation</title>
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-<script>
-
-// AFRAME.registerComponent('cursor-listener', {
-//   init: function () {
-//     var lastIndex = -1;
-//     var COLORS = ['red', 'green', 'blue'];
-//     this.el.addEventListener('click', function (evt) {
-//       lastIndex = (lastIndex + 1) % COLORS.length;
-//       this.setAttribute('material', 'color', COLORS[lastIndex]);
-//       console.log('I was clicked at: ', evt.detail.intersection.point);
-//     });
-//   }
-// });
-
-AFRAME.registerComponent('cursor-listener', {
-  init: function () {
-    const myimage=document.getElementById('image')
-    const left=document.getElementById('left-but')
-    const right=document.getElementById('right-but')
-    const heartBut=document.getElementById('heart-but')
-    const model=document.getElementById('model')
-
-    var num=['heart.jpg', 'crazyvault.jpeg','try.png'];
-    var lastIndex = 0;
-    var rotation = 90;
-    left.addEventListener('click', function(evt){
-      if (lastIndex<1){
-        lastIndex=3
-      }
-      lastIndex = (lastIndex - 1) % num.length;
-      myimage.setAttribute('src',`./`+`${num[lastIndex]} `)
-    })
-
-    right.addEventListener('click', function(evt){
-      lastIndex = (lastIndex + 1) % num.length;
-      myimage.setAttribute('src',`./`+`${num[lastIndex]} `)
-    })
-
-    heartBut.addEventListener('click', function(evt){
-    rotation = rotation+30;
-    model.setAttribute('rotation', `0 `+`0`+` 0`)
-    console.log(`0 `+`${rotation}`+` 0`)
-    })
-
-  }});
-
-  
-    </script>    
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+<script src="./js.js"></script>    
 </head>
     
     <body>
-        <a-scene mindar-image="imageTargetSrc: ./targets-3.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
+        <a-scene mindar-image="imageTargetSrc: ./targets-3.mind;" id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
           <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
           
           <a-assets>
@@ -71,7 +25,7 @@ AFRAME.registerComponent('cursor-listener', {
 
           <a-entity  mindar-image-target="targetIndex: 0">
             <a-image id="image" cursor-listener src="#my-image1" position="0 1.25 0" class="clickable"></a-image>
-            <a-gltf-model src="#heart" id='model' cursor-listener rotation="0 -90 0 " position="0 0 0" scale="0.15 0.15 0.15" animation-mixer></a-gltf-model>
+            <a-gltf-model src="#heart" id='model' rotation-scale cursor-listener class='clickable' rotation="0 -90 0 " position="0 0 0" scale="0.15 0.15 0.15" animation-mixer></a-gltf-model>
             <!-- <a-triangle id="heart-but" cursor-listener class="clickable" position="0.75 0 0"rotation="0 0 -90 " scale="0.15 0.15"></a-triangle> -->
             <a-text value="x" id="heart-but" cursor-listener class="clickable" position="0.75 0 0" rotation="0 0 0 " scale="1 1 1"></a-text>
             <a-text value="y" id="heart-but" cursor-listener class="clickable" position="0 -0.75 0" rotation="0 0 0 " scale="1 1 1"></a-text>
@@ -80,11 +34,6 @@ AFRAME.registerComponent('cursor-listener', {
             <a-triangle id="right-but"  cursor-listener class="clickable" color="#CCC" position="0.75 1.25 0"rotation="0 0 -90 " scale="0.15 0.15"></a-triangle>
             <a-triangle id="left-but" cursor-listener class="clickable" position="-0.75 1.25 0"rotation="0 0 90 " scale="0.15 0.15"></a-triangle>
           </a-entity>
-
-          <!-- <a-entity mindar-image-target="targetIndex: 0">
-            <a-image src="#my-image" position="0 1.25 0"></a-image>
-          </a-entity> -->
-          
         </a-scene>
       </body>
     </html>
