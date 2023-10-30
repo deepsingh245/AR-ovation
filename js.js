@@ -31,66 +31,41 @@ AFRAME.registerComponent('cursor-listener', {
 
   }});
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const scene = document.getElementById('scene');
-    const model2 = document.getElementById('heart');
 
-    const manager = new Hammer.Manager(scene);
-    const pinch = new Hammer.Pinch();
-    const rotate = new Hammer.Rotate();
-    manager.add(pinch);
-    manager.add(rotate);
 
-    manager.on('pinch', function(ev) {
-        console.log('Pinch Event');
-        const currScale = model2.getAttribute('scale');
-        const scaleChange = (ev.scale - 1) * 0.01;
 
-        model2.setAttribute('scale', {
-            'x': currScale.x + scaleChange,
-            'y': currScale.y + scaleChange,
-            'z': currScale.z + scaleChange
-        });
-    });
 
-    manager.on('rotate', function(ev) {
-        console.log('Rotate Event');
-        const currRotation = model2.getAttribute('rotation');
-        const rotationChange = ev.rotation;
-
-        model2.setAttribute('rotation', {
-            'x': currRotation.x,
-            'y': currRotation.y + rotationChange,
-            'z': currRotation.z
-        });
-    });
+  AFRAME.registerComponent('drag-rotate-component',{
+    schema : { speed : {default:1}},
+    init : function(){
+      this.ifMouseDown = false;
+      this.x_cord = 0;
+      this.y_cord = 0;
+      document.addEventListener('mousedown',this.OnDocumentMouseDown.bind(this));
+      document.addEventListener('mouseup',this.OnDocumentMouseUp.bind(this));
+      document.addEventListener('mousemove',this.OnDocumentMouseMove.bind(this));
+    },
+    OnDocumentMouseDown : function(event){
+      this.ifMouseDown = true;
+      this.x_cord = event.clientX;
+      this.y_cord = event.clientY;
+    },
+    OnDocumentMouseUp : function(){
+      this.ifMouseDown = false;
+    },
+    OnDocumentMouseMove : function(event)
+    {
+      if(this.ifMouseDown)
+      {
+        console.log('halfdone',)
+        var temp_x = event.clientX-this.x_cord;
+        var temp_y = event.clientY-this.y_cord;
+        this.el.object3D.rotateY(temp_x*this.data.speed/100);
+        this.el.object3D.rotateX(temp_y*this.data.speed/100);
+    
+        this.x_cord = event.clientX;
+        this.y_cord = event.clientY;
+      }
+    }
   });
-	//
 
-
-
-
-  // ye hammer wala yaha se hai ek uper bhi hai
-
-// AFRAME.registerComponent('rotation-scale', {
-//   init: function () {
-//       const mymodel = document.getElementById('model');
-//       var mc = new Hammer.Manager(mymodel);
-
-//       const pinch = new Hammer.Pinch()
-//       const rotate = new Hammer.Rotate()
-
-//       pinch.recognizeWith(rotate);
-
-//       mc.add([pinch, rotate]);
-//       const curr = mymodel.getAttribute('rotation')
-//       mc.on('rotate', function(ev){
-//         console.log('done bhai')
-//         mymodel.setAttribute('rotation',{
-//           'x': curr.x - touch.pageY*0.01,
-//           'y': curr.y + touch.pageX*0.01,
-//           'z': curr.z 
-//         } )
-//       })
-//   }
-// });
