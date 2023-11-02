@@ -60,8 +60,8 @@ AFRAME.registerComponent('cursor-listener', {
         console.log('halfdone',)
         var temp_x = event.clientX-this.x_cord;
         var temp_y = event.clientY-this.y_cord;
-        this.el.object3D.rotateY(temp_x*this.data.speed/100);
-        this.el.object3D.rotateX(temp_y*this.data.speed/100);
+        this.el.object3D.rotateY(temp_y*this.data.speed/100);
+        this.el.object3D.rotateX(temp_x*this.data.speed/100);
     
         this.x_cord = event.clientX;
         this.y_cord = event.clientY;
