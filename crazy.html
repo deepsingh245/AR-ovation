@@ -7,7 +7,7 @@
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-<script src="./js.js"></script>    
+<script src="./asset/js.js"></script>    
 </head> 
     <style>
       #port-but{
@@ -17,15 +17,15 @@
     </style>
     <body>
       <a href="portfolio.html" id="port-but"><button>Portfolio Card</button></a>
-        <a-scene mindar-image="imageTargetSrc: ./targets-3.mind;" id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
+        <a-scene mindar-image="imageTargetSrc: ./asset/targets/targets-3.mind;" id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
           <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
           
           <a-assets>
             <!-- <a-asset-item id="heart" src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/cake%202/scene.gltf"></a-asset-item> -->
             <a-asset-item id="heart" drag-rotate-component src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/realistic_heart_animated/scene.gltf"></a-asset-item>
-            <img id="my-image1" src="./heart.jpg">
-            <img id="my-image2" src="./crazyvault.jpeg">
-            <img id="my-image3" src="./try.png">
+            <img id="my-image1" src="./asset/images/heart.jpg">
+            <img id="my-image2" src="./asset/images/crazyvault.jpeg">
+            <img id="my-image3" src="./asset/images/try.png">
           </a-assets>
 
           <a-entity  mindar-image-target="targetIndex: 0">
