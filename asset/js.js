@@ -15,12 +15,12 @@ AFRAME.registerComponent('cursor-listener', {
         lastIndex=3
       }
       lastIndex = (lastIndex - 1) % num.length;
-      myimage.setAttribute('src',`./`+`${num[lastIndex]} `)
+      myimage.setAttribute('src',`./asset/images/`+`${num[lastIndex]} `)
     })
 
     right.addEventListener('click', function(evt){
       lastIndex = (lastIndex + 1) % num.length;
-      myimage.setAttribute('src',`./`+`${num[lastIndex]} `)
+      myimage.setAttribute('src',`./asset/images/`+`${num[lastIndex]} `)
     })
 
     heartBut.addEventListener('click', function(evt){
