@@ -7,16 +7,20 @@
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script src="./asset/js.js"></script>    
 </head> 
     <style>
-      #port-but{
+      /* #port-but{
         position: absolute;
         z-index: 3;
-      }
+      } */
     </style>
     <body>
-      <a href="index.html" id="port-but"><button>Portfolio Card</button></a>
+      <div class="but-card w-full p-6 flex justify-center items-center bg-gray-200 mb-3">
+        <a href="index.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Portfolio Card</button></a>
+      <a href="tattoo.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Tattoo</button></a>
+      </div>
         <a-scene mindar-image="imageTargetSrc: ./asset/targets/targets-3.mind;" id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
           <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
           
