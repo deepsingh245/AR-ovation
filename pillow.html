@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR-ovation</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.3/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css.css">
+  </head>
+
+  <body>
+   
+    <div class="but-card w-full p-6 flex justify-center items-center bg-gray-200 mb-3 z-10 absolute">
+      <a href="index.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Portfolio Card</button></a>
+    <a href="crazy.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Heart</button></a>
+    <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
+    <a href="laptop.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Treasure</button></a>
+    </div>
+    </div>
+    <a-scene
+      mindar-image="imageTargetSrc: ./asset/targets/pillow.mind;"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+    >
+      <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+        cursor="fuse: false; rayOrigin: mouse;"
+        raycaster="far: ${customFields.libVersion}; objects: .clickable"
+      ></a-camera>
+
+      <a-assets>
+        <a-asset-item
+          id="dragon"
+          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/doge/scene.gltf"
+        ></a-asset-item>
+        <img id="my-image" src="./asset/images/generatedtext (1).png">
+      </a-assets>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model
+          src="#dragon"
+          id="model"
+          cursor-listener
+          rotation="0 0 0 "
+          position="0 -0.5  0"
+          scale="0.009 0.009 0.009"
+          animation-mixer
+        ></a-gltf-model>
+        <!-- <a-image src="#my-image"  position="0 2 0" scale="1.5 1" ></a-image> -->
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
