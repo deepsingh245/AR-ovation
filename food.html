@@ -19,7 +19,7 @@
     <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
     </div>
     <a-scene
-      mindar-image="imageTargetSrc: ./asset/targets/laptop.mind.txt;"
+      mindar-image="imageTargetSrc: ./asset/targets/food.mind;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
@@ -32,27 +32,68 @@
 
       <a-assets>
         <a-asset-item
-          id="food"
-          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/food_of_the_sand_king/scene.gltf"
+          id="burger"
+          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/burger/scene.gltf"
         ></a-asset-item>
-        <!-- <img id="my-image" src="./asset/images/generatedtext (1).png"> -->
+        <a-asset-item
+        id="cake"
+        src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/birthday_cake/scene.gltf"
+      ></a-asset-item>
+      <a-asset-item
+      id="pasta"
+      src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/pasta/scene.gltf"
+    ></a-asset-item>
+    <a-asset-item
+    id="samosa"
+    src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/samosa/scene.gltf"
+  ></a-asset-item>
         <a-asset-item ></a-asset-item>
       </a-assets>
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model
-          src="#food"
+          src="#burger"
+          id="model"
+          cursor-listener
+          rotation="90 0 0 "
+          position="0 0  0"
+          scale="5 5 5"
+          animation-mixer
+        ></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model
+          src="#cake"
           id="model"
           cursor-listener
           rotation="0 0 0 "
           position="0 0  0"
+          scale="0.15 0.15 0.15"
+          animation-mixer
+        ></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-gltf-model
+          src="#pasta"
+          id="model"
+          cursor-listener
+          rotation="90 0 0 "
+          position="0 0  0"
           scale="0.5 0.5 0.5"
           animation-mixer
         ></a-gltf-model>
-        <!-- <a-image src="#my-image"  position="0 2 0" scale="1.5 1" ></a-image> -->
       </a-entity>
-      <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-<a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-gltf-model
+          src="#samosa"
+          id="model"
+          cursor-listener
+          rotation="90 0 0"
+          position="0 0 0"
+          scale="0.25 0.25 0.25"
+          animation-mixer
+        ></a-gltf-model>
+      </a-entity>
 
     </a-scene>
   </body>
