@@ -15,8 +15,13 @@
 </head> 
     
     <body>
-      <div id="navbar" class="but-card w-full p-6 flex justify-center items-center bg-gray-200 mb-3 z-10 absolute">
-        
+      <div class="but-card w-full p-6 flex justify-center items-center bg-gray-200 mb-3 z-10 absolute">
+        <a href="index.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Portfolio Card</button></a>
+      <a href="tattoo.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Tattoo</button></a>
+      <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
+      <a href="building.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>City</button></a>
+      <a href="laptop.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>treasure</button></a>
+      <a href="food.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Food</button></a>
       </div>
         <a-scene mindar-image="imageTargetSrc: ./asset/targets/targets-3.mind;" id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" >
           <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>

@@ -18,13 +18,14 @@
     <a href="crazy.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Heart</button></a>
     <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
     <a href="laptop.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Treasure</button></a>
+    <a href="building.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>City</button></a>
+    <a href="Food.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Food</button></a>
     </div>
     </div>
     <a-scene
       mindar-image="imageTargetSrc: ./asset/targets/targets-4.mind;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
-      webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#myobject;enabled= true; src= #ring ; type=map" 
     >
       <a-camera
         position="0 0 0"
@@ -38,14 +39,9 @@
           id="dragon"
           src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/dragon/scene.gltf"
         ></a-asset-item>
-        <a-asset-item
-          id="place"
-          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/sci-fi_panels/scene.gltf"
-        ></a-asset-item>
       </a-assets>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-entity id="myBox" anchored="persistent: true" geometry="primitive: box" position="0 1 0" material="color: red"></a-entity>
         <a-gltf-model
           src="#dragon"
           id="model"
@@ -55,10 +51,7 @@
           scale="0.009 0.009 0.009"
           animation-mixer
         ></a-gltf-model>
-        <!-- <a-image src="#my-image"  position="0 2 0" scale="1.5 1" ></a-image> -->
       </a-entity>
-      <a-entity id="myobject" src="#place"></a-entity>
-      <a-ring id="ring" color="teal" radius-inner="1" radius-outer="2"></a-ring>
     </a-scene>
   </body>
 </html>
