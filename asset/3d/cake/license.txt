@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fruit Cream Cake
+* source:	https://sketchfab.com/3d-models/fruit-cream-cake-d1b442b228e6422f8877bab8f8a6bfec
+* author:	Francesco Coldesina (https://sketchfab.com/topfrank2013)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fruit Cream Cake" (https://sketchfab.com/3d-models/fruit-cream-cake-d1b442b228e6422f8877bab8f8a6bfec) by Francesco Coldesina (https://sketchfab.com/topfrank2013) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

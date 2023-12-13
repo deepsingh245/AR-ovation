@@ -8,21 +8,16 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.3/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="./css.css">
   </head>
 
   <body>
    
     <div class="but-card w-full p-6 flex justify-center items-center bg-gray-200 mb-3 z-10 absolute">
-      <a href="index.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Portfolio Card</button></a>
-    <a href="crazy.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Heart</button></a>
-    <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
-    <a href="laptop.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Treasure</button></a>
-    </div>
+     </div>
     </div>
     <a-scene
-      mindar-image="imageTargetSrc: ./asset/targets/pillow.mind;"
+      mindar-image="imageTargetSrc: ./asset/targets/targets-4.mind;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
@@ -35,18 +30,17 @@
 
       <a-assets>
         <a-asset-item
-          id="dragon"
-          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/doge/scene.gltf"
+          id="buildings"
+          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/low-poly_city_buildings/scene.gltf"
         ></a-asset-item>
-        <img id="my-image" src="./asset/images/generatedtext (1).png">
       </a-assets>
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model
-          src="#dragon"
+          src="#buildings"
           id="model"
           cursor-listener
-          rotation="0 0 0 "
+          rotation="45 0 0 "
           position="0 0  0"
           scale="1 1 1"
           animation-mixer
