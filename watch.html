@@ -34,7 +34,11 @@
       <a-assets>
         <a-asset-item
           id="panels"
-          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/sci-fi_panels/scene.gltf"
+          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/panel/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="alien"
+          src="https://raw.githubusercontent.com/deepsingh245/Inovo-ED-AR-foreveryone/master/asset/3d/alien/scene.gltf"
         ></a-asset-item>
         <!-- <img id="my-image" src="./asset/images/generatedtext (1).png"> -->
       </a-assets>
@@ -46,7 +50,16 @@
           cursor-listener
           rotation="0 0 0 "
           position="0 0  0"
-          scale="0.009 0.009 0.009"
+          scale="1 1 1"
+          animation-mixer
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#alien"
+          id="model"
+          cursor-listener
+          rotation="90 0 0 "
+          position="0 0  0"
+          scale="10 10 10"
           animation-mixer
         ></a-gltf-model>
         <!-- <a-image src="#my-image"  position="0 2 0" scale="1.5 1" ></a-image> -->
