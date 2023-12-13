@@ -71,11 +71,4 @@ AFRAME.registerComponent('cursor-listener', {
 
 
 
-  // css
-
-  const css= document.getElementById('navbar')
-  css.innerHTML=`
-  <a href="index.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Portfolio Card</button></a>
-      <a href="tattoo.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Tattoo</button></a>
-      <a href="watch.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Watch</button></a>
-      <a href="laptop.html" id="port-but" class="p-2 ml-2 rounded-xl bg-blue-500 "><button>Treasure</button></a>`
+  
