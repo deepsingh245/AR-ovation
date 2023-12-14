@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame Hit Test Example</title>
+    
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+
+    <a-scene id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" >
+        <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
+        
+        <!-- Tap Listener -->
+        <a-entity id="tapListener" cursor-listener></a-entity>
+
+        <!-- Box (Initially Invisible) -->
+        <a-box id="placedBox" position="0 0 -5" scale="0 0 0" color="red"></a-box>
+
+    </a-scene>
+
+   
+
+</body>
+</html>
