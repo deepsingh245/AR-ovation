@@ -1,28 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-Frame Hit Test Example</title>
-    
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR-ovation</title>
+    <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <!-- <script>
+    AFRAME.registerSystem("hit-test-system", {
+  schema: {
+    reticle: { type: "selector" },
+    target: { type: "selector" }
+  },
+  init: function () {
+    this.reticle = this.data.reticle;
+    this.target = this.data.target;
 
-<body>
+    this.el.addEventListener("enter-vr", () => {    
+      this.reticle.setAttribute("visible", "false");
+      this.target.setAttribute("visible", "false");
 
-    <a-scene id="scene"  renderer="logarithmicDepthBuffer: true;"vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" >
-        <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
-        
-        <!-- Tap Listener -->
-        <a-entity id="tapListener" cursor-listener></a-entity>
+      this.session = this.el.sceneEl.renderer.xr.getSession();
+      this.el.sceneEl.renderer.xr.addEventListener(
+        "sessionstart",
+        async (ev) => {
+          this.viewerSpace = await this.session.requestReferenceSpace("viewer");
+          this.refSpace = this.el.sceneEl.renderer.xr.getReferenceSpace();
+          this.xrHitTestSource = await this.session.requestHitTestSource({
+            space: this.viewerSpace
+          });
+        }
+      );
 
-        <!-- Box (Initially Invisible) -->
-        <a-box id="placedBox" position="0 0 -5" scale="0 0 0" color="red"></a-box>
+      this.session.addEventListener("select", () => {
+        //console.log(e);
+        if (!this.reticle.getAttribute("visible")) return;
+        this.target.setAttribute("visible", "true");
+        this.target.setAttribute(
+          "position",
+          this.reticle.getAttribute("position")
+        );
+      });
+    });
+  },
 
-    </a-scene>
+  tick: function () {
+    this.reticle.setAttribute("visible", "false");
+    const frame = this.el.sceneEl.frame;
+    if (!frame) return;
 
-   
+    const viewerPose = this.el.sceneEl.renderer.xr.getCameraPose();
+    if (this.xrHitTestSource && viewerPose) {
+      const hitTestResults = frame.getHitTestResults(this.xrHitTestSource);
+      if (hitTestResults.length > 0) {
+        const hitTestPose = hitTestResults[0].getPose(this.refSpace);
+        ["x", "y", "z"].forEach((axis) => {
+          this.reticle.object3D.position[axis] =
+            hitTestPose.transform.position[axis];
+        });
+        this.reticle.object3D.quaternion.copy(
+          hitTestPose.transform.orientation
+        );
+        this.reticle.setAttribute("visible", "true");
+      }
+    }
+  }
+});
 
-</body>
+  </script> -->
+  <body>
+    <a-scene vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true" webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#myobject;">
+    <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+        cursor="fuse: false; rayOrigin: mouse;"
+        raycaster="far: ${customFields.libVersion}; objects: .clickable"
+      ></a-camera>
+        <a-entity id="myobject">
+            <a-box scale="1 1 1" color="red"></a-box>
+        </a-entity>
+  </body>
 </html>
